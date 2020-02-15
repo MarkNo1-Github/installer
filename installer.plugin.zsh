@@ -23,4 +23,19 @@ function install_atom_plugins(){
   apm install git-log
   apm install git-diff-details
   apm install git-plus
+  apm install atom-material-ui
+  apm install minimap
+  apm install autocomplete-python
+}
+
+: 'Install LibUV'
+function install_libuv(){
+  sudo apt-get install ninja-build gettext libtool libtool-bin autoconf automake cmake g++ pkg-config unzip
+  cd /tmp/
+  git clone https://github.com/libuv/libuv.git
+  cd libuv
+  sh autogen.sh
+  ./configure
+  make check
+  sudo make install
 }
