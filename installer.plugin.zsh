@@ -47,5 +47,5 @@ function Enable-Installer() {
     apt-get install nginx
   }
 
-  
+
 }
