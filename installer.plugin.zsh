@@ -47,5 +47,26 @@ function Enable-Installer() {
     apt-get install nginx
   }
 
+  function install_py3.7(){
+    current_dir=$(pwd)
+    sudo apt update
+    sudo apt install software-properties-common build-essential zlib1g-dev \
+    libncurses5-dev libgdbm-dev libnss3-dev libssl-dev libreadline-dev \
+    libffi-dev wget
+    cd /tmp
+    echo "Chose availabe versions: \n"
+    curl -s "https://www.python.org/ftp/python/" | grep -oE '([0-9]\.[0-9]\.[0-9])'
+    read version
+    curl -s "https://www.python.org/ftp/python/${version}/"
+    curl -s "https://www.python.org/ftp/python/${version}/" | grep -Po  '(?<=href=")[^"]*(?=")'
+    echo "Dowload availabe versions: \n"
+    read python
+    wget https://www.python.org/ftp/python/${version}/${python}
+    tar –xf $python
+    echo "Enter in the python folder"
+    echo "Run ./configure ––enable–optimizations"
+    echo "sudo make altinstall"
+  }
+
 
 }
